@@ -1,0 +1,123 @@
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.main {
+  width: 100vw;
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  .card {
+    background-color: #ffffff;
+    color: #292c46;
+    padding: 2rem;
+    border-radius: 2rem;
+    display: flex;
+    gap: 4rem;
+    padding-left: 4rem;
+
+    section {
+      max-width: 360px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+      gap: 1.8rem;
+      h1,
+      label {
+        font-family: 'Roboto-Bold';
+      }
+      h1 {
+        font-size: 3.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .list {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        .itemList {
+          display: flex;
+          gap: 1.2rem;
+          font-size: 0.9rem;
+        }
+      }
+      form {
+        margin-top: 0.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        position: relative;
+        label {
+          font-size: 0.8rem;
+        }
+        .inputMail {
+          background-color: #ffffff;
+          padding: 1rem;
+          border-radius: 0.475rem;
+          outline: none;
+          border: 1px solid #b4b3b7;
+          color: #292c46;
+          font-size: 0.9rem;
+          padding-left: 1.4rem;
+          cursor: pointer;
+          &::placeholder {
+            color: #b4b3b7;
+          }
+          &:hover,
+          &:focus {
+            border-color: #292c46;
+          }
+        }
+        .errorInput {
+          color: #e47f51;
+          border-color: #e47f51;
+          background-color: #fbe9e7;
+          &:hover,
+          &:focus {
+            border-color: #e47f51;
+          }
+        }
+        small {
+          position: absolute;
+          font-family: 'Roboto-Bold';
+          top: 0;
+          right: 0;
+          color: #e47f51;
+        }
+        button {
+          margin-top: 1rem;
+          padding: 1rem;
+          background-color: #292c46;
+          color: #ffffff;
+          border: none;
+          outline: none;
+          transition:
+            background 0.3s ease,
+            filter 0.3s ease;
+          &:hover,
+          &:focus {
+            border: none;
+            outline: none;
+            background: rgb(235, 98, 122);
+            background: linear-gradient(
+              90deg,
+              rgba(235, 98, 122, 1) 0%,
+              rgba(235, 104, 98, 1) 37%,
+              rgba(236, 116, 64, 1) 100%
+            );
+            filter: drop-shadow(0px 12px 20px rgba(235, 104, 98, 1));
+          }
+        }
+      }
+    }
+  }
+}
