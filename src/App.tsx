@@ -20,7 +20,12 @@ function App() {
       setErrorMail(true);
     }
   }
-
+  function setDefault() {
+    setValidEmail(false);
+    setEmail('');
+    setErrorMail(false);
+    setShowSuscribed(false);
+  }
   function sendForm() {
     if (validEmail) setShowSuscribed(true);
   }
@@ -29,6 +34,12 @@ function App() {
     <main className={styles.main}>
       {!showSuscribed ? (
         <div className={styles.card}>
+          <img
+            src="/assets/images/illustration-sign-up-mobile.svg"
+            alt="imagen ilustrativa"
+            title="imagen ilustrativa"
+            className={styles.imgMobile}
+          />
           <section>
             <h1>Stay updated!</h1>
             <p>Join 60,000+ product managers receiving monthly updates on:</p>
@@ -61,7 +72,7 @@ function App() {
                 placeholder="email@company.com"
               />
               {errorMail && <small>Valid email required</small>}
-              <button disabled={!validEmail}>
+              <button className={styles.buttonSend} disabled={!validEmail}>
                 Subscribe to monthly newsletter
               </button>
             </form>
@@ -70,12 +81,28 @@ function App() {
             src="/assets/images/illustration-sign-up-desktop.svg"
             alt="imagen ilustrativa"
             title="imagen ilustrativa"
+            className={styles.imgDesktop}
           />
         </div>
       ) : (
-        <div className={styles.card}>
-          <h1>Suscribed</h1>
-          <p>your email: {email}</p>
+        <div className={[styles.card, styles.cardSuccess].join(' ')}>
+          <section className={styles.sectionSuccess}>
+            <img
+              className={styles.iconSuccess}
+              src="/assets/images/icon-success.svg"
+              alt="icono success"
+            />
+            <h1>Thanks for subscribing!</h1>
+            <p>
+              A confirmation email has been sent to{' '}
+              <span className={styles.mailBold}>{email}</span>. Please open it
+              and click the button inside to confirm your subscription
+            </p>
+          </section>
+
+          <button className={styles.buttonSend} onClick={setDefault}>
+            Demiss message
+          </button>
         </div>
       )}
     </main>

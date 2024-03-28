@@ -1,3 +1,6 @@
+@import 'variables.scss';
+@import 'mixins.scss';
+
 #root {
   max-width: 100%;
   margin: 0 auto;
@@ -11,30 +14,66 @@
   display: grid;
   place-items: center;
   .card {
+    width: 100%;
+    height: 100%;
     background-color: #ffffff;
-    color: #292c46;
-    padding: 2rem;
-    border-radius: 2rem;
+    color: $darkBlue;
     display: flex;
-    gap: 4rem;
-    padding-left: 4rem;
-
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    @include md {
+      width: auto;
+      height: auto;
+      gap: 4rem;
+      padding: 2rem;
+      border-radius: 2rem;
+      flex-direction: row;
+      padding-left: 4rem;
+      align-items: stretch;
+    }
+    .imgMobile {
+      width: 100%;
+      display: block;
+      @include md {
+        display: none;
+      }
+    }
+    .imgDesktop {
+      display: none;
+      @include md {
+        display: block;
+      }
+    }
     section {
-      max-width: 360px;
       display: flex;
       flex-direction: column;
       align-items: stretch;
       justify-content: center;
       gap: 1.8rem;
+      max-width: 345px;
+
+      @include md {
+        max-width: 360px;
+      }
+
       h1,
       label {
         font-family: 'Roboto-Bold';
       }
       h1 {
-        font-size: 3.5rem;
+        font-size: 2.5rem;
+
+        @include md {
+          font-size: 3.5rem;
+        }
       }
       p {
-        font-size: 1rem;
+        font-size: 0.8rem;
+        @include md {
+          font-size: 1rem;
+        }
       }
       .list {
         width: 100%;
@@ -64,26 +103,31 @@
           padding: 1rem;
           border-radius: 0.475rem;
           outline: none;
-          border: 1px solid #b4b3b7;
-          color: #292c46;
-          font-size: 0.9rem;
+          border: 1px solid $lightGrey;
+          color: $darkBlue;
           padding-left: 1.4rem;
+          font-size: 0.8rem;
+          @include md {
+            padding: 0.8rem;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+          }
           cursor: pointer;
           &::placeholder {
-            color: #b4b3b7;
+            color: $lightGrey;
           }
           &:hover,
           &:focus {
-            border-color: #292c46;
+            border-color: $darkBlue;
           }
         }
         .errorInput {
-          color: #e47f51;
-          border-color: #e47f51;
-          background-color: #fbe9e7;
+          color: $orange;
+          border-color: $orange;
+          background-color: $lightOrange;
           &:hover,
           &:focus {
-            border-color: #e47f51;
+            border-color: $orange;
           }
         }
         small {
@@ -91,32 +135,68 @@
           font-family: 'Roboto-Bold';
           top: 0;
           right: 0;
-          color: #e47f51;
+          color: $orange;
         }
-        button {
-          margin-top: 1rem;
-          padding: 1rem;
-          background-color: #292c46;
-          color: #ffffff;
-          border: none;
-          outline: none;
-          transition:
-            background 0.3s ease,
-            filter 0.3s ease;
-          &:hover,
-          &:focus {
-            border: none;
-            outline: none;
-            background: rgb(235, 98, 122);
-            background: linear-gradient(
-              90deg,
-              rgba(235, 98, 122, 1) 0%,
-              rgba(235, 104, 98, 1) 37%,
-              rgba(236, 116, 64, 1) 100%
-            );
-            filter: drop-shadow(0px 12px 20px rgba(235, 104, 98, 1));
-          }
+      }
+    }
+  }
+  .buttonSend {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.9rem;
+    background-color: $darkBlue;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    transition:
+      background 0.3s ease,
+      filter 0.3s ease;
+    @include md {
+      padding: 1rem;
+    }
+    &:hover,
+    &:focus {
+      border: none;
+      outline: none;
+      background: rgb(235, 98, 122);
+      background: linear-gradient(
+        90deg,
+        rgba(235, 98, 122, 1) 0%,
+        rgba(235, 104, 98, 1) 37%,
+        rgba(236, 116, 64, 1) 100%
+      );
+      filter: drop-shadow(0px 12px 20px rgba(235, 104, 98, 1));
+    }
+  }
+  h1,
+  .mailBold {
+    font-family: 'Roboto-Bold';
+  }
+  .cardSuccess {
+    justify-content: space-between;
+    padding: 1.6rem;
+    padding-bottom: 2rem;
+    @include md {
+      justify-content: center;
+      gap: 1rem;
+      flex-direction: column;
+      padding: 4rem;
+    }
+
+    .sectionSuccess {
+      margin-top: 25%;
+      text-wrap: pretty;
+      @include md {
+        margin: 0;
+      }
+      p {
+        font-size: 0.9rem;
+        @include md {
+          font-size: 1rem;
         }
+      }
+      .iconSuccess {
+        align-self: flex-start;
       }
     }
   }
